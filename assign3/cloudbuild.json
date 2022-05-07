@@ -1,0 +1,36 @@
+{
+  "steps": [
+  {
+    "name": "gcr.io/cloud-builders/docker",
+    "entrypoint": "bash",
+    "args": [
+      "-c",
+      "docker login --username=$$USERNAME --password=$$PASSWORD"
+    ],
+    "secretEnv": [
+      "USERNAME",
+      "PASSWORD"
+    ]
+  },
+  {
+    "name": "gcr.io/cloud-builders/docker",
+    "entrypoint": "bash",
+    "args": [
+      "-c",
+      "docker run $$USERNAME/hello-repo:v1"
+     ],
+     "secretEnv": [
+      "USERNAME"
+    ]
+  }
+  ],
+  "availableSecrets": {
+    "secretManager": [{
+      "versionName": "projects/gkeangular/secrets/dockerpassword/versions/1",
+      "env": "PASSWORD"
+  }, {
+    "versionName": "projects/gkeangular/secrets/venkatcganta9/versions/1",
+    "env": "USERNAME"
+     }]
+  }
+}

@@ -1,0 +1,26 @@
+gcloud artifacts repositories create swe645hw3repo \
+   --repository-format=docker \
+   --location=us-east4 \
+   --description="Docker repository"
+
+
+https://bitbucket.org/venkatcganta/swe645hw3/src/master/
+
+git clone https://github.com/GoogleCloudPlatform/kubernetes-engine-samples
+cd kubernetes-engine-samples/hello-app
+
+git clone https://bitbucket.org/venkatcganta/swe645hw3/src/master/
+cd /master
+
+
+hello-app = assign4
+hello-repo= swe645hw3repo
+projectid- swe645hw3angular
+cluster google name- swe645hw3cluster
+
+docker build -t us-east4-docker.pkg.dev/swe645hw3angular/swe645hw3repo/assign4:v1 .
+
+docker run --rm -p 8081:8080 us-east4-docker.pkg.dev/swe645hw3angular/swe645hw3repo/assign4:v1
+
+docker push us-east4-docker.pkg.dev/${PROJECT_ID}/hello-repo/hello-app:v1
+docker push us-east4-docker.pkg.dev/swe645hw3angular/swe645hw3repo/assign4:v1

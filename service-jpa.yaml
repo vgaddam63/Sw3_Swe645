@@ -1,0 +1,32 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"app":"demo"},"name":"demo","namespace":"default"},"spec":{"ports":[{"name":"8080-8080","port":8080,"protocol":"TCP","targetPort":8080}],"selector":{"app":"demo"},"type":"ClusterIP"},"status":{"loadBalancer":{}}}
+  creationTimestamp: "2021-04-12T18:53:11Z"
+  labels:
+    app: demo
+  name: demo
+  namespace: default
+  resourceVersion: "168618"
+  selfLink: /api/v1/namespaces/default/services/demo
+  uid: 288b77e6-ed31-4852-b77a-c3b414d6ced2
+spec:
+  clusterIP: 10.100.19.173
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: demo
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
+
